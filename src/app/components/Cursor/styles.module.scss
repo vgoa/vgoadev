@@ -15,7 +15,7 @@
     content: "";
     display: inline-block;
     transform: translate(-3px , -3px);
-    @include build-circle(24px, 24px, transparent, purple);
+    @include build-circle(24px, 24px, transparent, rgb(100, 2, 100));
     box-shadow: -1px -1px 10px;
   }
 
