@@ -1,0 +1,30 @@
+ 
+@use '../../client/scss/utils/mixins' as *;
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include build-circle(22px, 22px, transparent, navy);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s ease-in-out;
+  
+  &::before {
+    position: fixed;
+    content: "";
+    display: inline-block;
+    transform: translate(-3px , -3px);
+    @include build-circle(24px, 24px, transparent, purple);
+    box-shadow: -1px -1px 10px;
+  }
+
+  &::after {
+    position: fixed;
+    content: "";
+    display: inline-block;
+    transform: translate(-4px, -4px);
+    @include build-circle(26px, 26px, transparent, blue);
+    box-shadow: -1px -1px 20px;
+  }
+}
