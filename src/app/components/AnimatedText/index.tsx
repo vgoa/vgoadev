@@ -9,12 +9,30 @@ interface TextProps {
   text: string;
 }
 
+const SplitText = (text: string) => {
+  
+  useEffect(() => {
+    const spans = document.querySelectorAll(`.${styles.hidden}`);
+    spans.forEach((span, index) => {
+      if (index === 0) {
+       setTimeout(() => {
+          span.classList.remove(styles.hidden);
+          span.classList.add(styles.visible);
+        }, 1500);
+      } else {
+        index += 1; // Adjust index for delay calculation
+        setTimeout(() => {
+          span.classList.remove(styles.hidden);
+          span.classList.add(styles.visible);
+        }, index * 1500); // Delay based on index
+      }
+    });
+  }, [text]);
 
-const splitText = (text: string) => {
   return text.split('').map((char, index) => (
-    <span key={index} className = { index === 0 ? styles.visible : styles.hidden}>
-      {char}
-    </span>
+      <span key={index} className = { index === 0 ? styles.visible : styles.hidden}>
+        {char}
+      </span>
   ));
 };
 
@@ -22,8 +40,8 @@ const splitText = (text: string) => {
 export default function AnimatedText({ text }: TextProps) {
 
 return (
-	<div>
-		{splitText(text)}
+	<div className={styles.animatedTextContainer}>
+		{SplitText(text)}
 	</div>
 	);
 }

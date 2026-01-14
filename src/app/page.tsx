@@ -10,7 +10,9 @@ export default function Home() {
   return (
     <main className={styles.page}>
       <Cursor/>
-      <AnimatedText text="VGOA"/>
+      <>
+        <AnimatedText text="VGOA"/>
+      </>
     </main>
   );
 }
