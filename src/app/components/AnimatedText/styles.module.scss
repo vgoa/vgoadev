@@ -1,8 +1,25 @@
+@use '../../client/scss/utils/mixins' as *;
+
+
 .visible {
 	display: inline-block;
 	z-index: 3;
 	position: relative;
 	font-size: 15vw;
+	animation: delayedFadeIn 0.5s ease-in-out forwards;
 }
+
 .hidden {
-font-size: 15vw;}
+font-size: 15vw;
+display: none;
+}
+
+@keyframes delayedFadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+	
+}
